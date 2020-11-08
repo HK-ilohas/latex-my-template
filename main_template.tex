@@ -1,6 +1,7 @@
 \documentclass[uplatex]{jsarticle}
 \usepackage[utf8]{inputenc}
-
+% 図を現在位置に挿入
+\usepackage{here}
 % 文字コード関連の設定
 \usepackage{otf}
 % 数式
@@ -295,4 +296,35 @@ $\displaystyle p_n(x) =\sum_{i=0}^n f[x_0,\cdots,x_i] \prod_{j=0}^{i-1}(x-x_j)$
     こんな感じで例を書く．
 \end{ex}
 
+\newpage
+\subsection{図}
+\begin{itemize}
+    \item 画像の場合
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.25]{./fig/install_terminal.png}
+        \caption{Windows Terminalのインストール}
+        \label{fig:install_terminal}
+    \end{figure}
+    \item PDFの場合
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{./fig/graph.pdf}
+        \caption{$y=x^2$と$y=x$のグラフ}
+        \label{fig:graph1}
+    \end{figure}
+    \newpage
+    \item PDFのページごとの場合
+    \begin{figure}[H]
+        \centering
+        \fbox{
+            \includegraphics[width=0.75\textwidth, page=3]{./fig/slide.pdf}
+        }
+    \end{figure}
+    
+    \noindent
+    \textbf{タイトル}
+
+    これでノート形式の資料も作れる．
+\end{itemize}
 \end{document}
