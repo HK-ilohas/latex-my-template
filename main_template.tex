@@ -134,6 +134,9 @@
     citecolor=black,
     urlcolor=black
 }
+% マクロ
+\newcommand{\vsc}{\vspace{5pt}}
+\newcommand{\vsp}{\vspace{10pt}}
 
 \begin{document}
 \title{タイトル}
@@ -156,25 +159,25 @@ int main(){
     return 0;
 }
 \end{lstlisting}
-\vspace{10pt}
+\vsp
 
 プログラムの一部は\verb|code|で貼り付ける．
 
-\vspace{5pt}
+\vsc
 \begin{lstlisting}[style=code]
 printf("Hello, World!\n");
 \end{lstlisting}
 
 コマンドは\verb|command|で貼り付ける．
 
-\vspace{5pt}
+\vsc
 \begin{lstlisting}[style=command]
 $ gcc hello.c -o hello
 \end{lstlisting}
 
 実行結果などを含む場合も同様．
 
-\vspace{5pt}
+\vsc
 \begin{lstlisting}[style=command]
 $ echo "hello"
 hello
@@ -182,7 +185,7 @@ hello
 
 単純に囲みたい場合は\verb|withframe|で貼り付ける．
 
-\vspace{5pt}
+\vsc
 \begin{lstlisting}[style=withframe]
 TEST    START
         LAD     GR0,15
