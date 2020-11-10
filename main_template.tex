@@ -135,8 +135,22 @@
     urlcolor=black
 }
 % マクロ
+% スペース関連
 \newcommand{\vsc}{\vspace{5pt}}
 \newcommand{\vsp}{\vspace{10pt}}
+% コンビネーション
+\newcommand{\combination}[2]{{}_{#1} \mathrm{C}_{#2}}
+% 順列
+\newcommand{\permutation}[2]{{}_{#1} \mathrm{P}_{#2}}
+% 重複組み合わせ
+\newcommand{\rcombination}[2]{{}_{#1} \mathrm{H}_{#2}}
+% ゴシック体のインデントなし
+\newcommand{\minisection}[1]{\noindent \textsf{#1}}
+% 箇条書きもどき
+\newcommand{\likeitem}[1]{
+    \noindent
+    ○ \, {#1}
+}
 
 \begin{document}
 \title{タイトル}
@@ -298,6 +312,26 @@ $\displaystyle p_n(x) =\sum_{i=0}^n f[x_0,\cdots,x_i] \prod_{j=0}^{i-1}(x-x_j)$
 \begin{ex}
     こんな感じで例を書く．
 \end{ex}
+
+\subsection{マクロによる数式}
+\likeitem{順列}
+
+\begin{equation}
+    \permutation{n}{r} = \frac{n!}{(n-r)!}
+\end{equation}
+
+\likeitem{組み合わせ}
+
+\begin{equation}
+    \combination{n}{r} = \frac{n!}{r!(n-r)!}
+\end{equation}
+
+\likeitem{重複組み合わせ}
+
+\begin{equation}
+    \rcombination{n}{r} = \frac{(n+r-1)!}{r!(n-1)!}
+\end{equation}
+
 
 \newpage
 \subsection{図}
