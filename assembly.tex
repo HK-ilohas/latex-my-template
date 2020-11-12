@@ -31,70 +31,7 @@
 \usepackage{paralist}
 % ソースコード関連の設定
 \usepackage{listings,jlisting}
-% プログラムのソースコード
-\lstdefinestyle{program}{
-    basicstyle={\small\ttfamily},
-    breaklines=true,
-    columns=fixed,
-    basewidth=0.5em,
-    % スペースを可視化するかどうか
-    showstringspaces=false,
-    % 枠線 trbl（大文字で二重線）
-    frame={tb},
-    % フレームと本文の間のマージン
-    framesep=8pt,
-    % 行番号
-    numbers=left,
-    numbersep=2zw,
-    % フォントサイズ
-    numberstyle={\scriptsize},
-    % マージン
-    xrightmargin=0zw,
-    xleftmargin=3zw,
-    % 行間
-    lineskip=-0.2ex,
-    % タブ数
-    tabsize=4,
-    % キャプション名の場所
-    captionpos=t,
-}
-% プログラムの一部
-\lstdefinestyle{code}{
-    basicstyle={\small\ttfamily},
-    breaklines=true,
-    columns=fixed,
-    basewidth=0.5em,
-    % スペースを可視化するかどうか
-    showstringspaces=false,
-    % フレームと本文の間のマージン
-    framesep=8pt,
-    % マージン
-    xrightmargin=0zw,
-    xleftmargin=2.5zw,
-    % 行間
-    lineskip=-0.2ex,
-    % タブ数
-    tabsize=4,
-}
-% コマンド
-% 角が丸いフレーム付き（文字サイズsmall）
-\lstdefinestyle{command}{
-    basicstyle={\small\ttfamily},
-    breaklines=true,
-    columns=fixed,
-    basewidth=0.5em,
-    showstringspaces=false,
-    frame={trbl},
-    frameround={tttt},
-    framesep=8pt,
-    framerule=0pt,
-    xrightmargin=1zw,
-    xleftmargin=1zw,
-    lineskip=-0.2ex,
-    tabsize=4,
-}
-% 角が丸いフレーム付き
-\lstdefinestyle{withframe}{
+\lstset{
     basicstyle={\ttfamily},
     breaklines=true,
     columns=fixed,
@@ -180,4 +117,16 @@
 \end{titlepage}
 
 \section{セクション}
+
+\verb|lstlisting|でプログラムや実行結果を貼り付ける．
+
+\vsc
+\begin{lstlisting}
+MAIN    START
+        OUT     MSG,MLEN
+        RET
+MSG     DC      'Hello, world'
+MLEN    DC      12
+        END
+\end{lstlisting}
 \end{document}
