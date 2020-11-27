@@ -1,0 +1,57 @@
+\documentclass[uplatex]{jsarticle}
+\usepackage[utf8]{inputenc}
+% 図を現在位置に挿入
+\usepackage{here}
+% 文字コード関連の設定
+\usepackage{otf}
+% 箇条書きのパラメータ関連の設定
+\usepackage{paralist}
+% マージンの設定
+\usepackage[left=30mm,right=30mm,top=35mm,bottom=30mm]{geometry}
+\renewcommand{\baselinestretch}{1.15}
+% 画像関連
+\usepackage[dvipdfmx]{graphicx}
+% フォント
+\usepackage{newtxtext,newtxmath}
+% URL
+\usepackage{url}
+% 文字数、行数指定
+\makeatletter
+\def\mojiparline#1{
+\newcounter{mpl}
+\setcounter{mpl}{#1}
+\@tempdima=\linewidth
+\advance\@tempdima by-\value{mpl}zw
+\addtocounter{mpl}{-1}
+\divide\@tempdima by \value{mpl}
+\advance\kanjiskip by\@tempdima
+\advance\parindent by\@tempdima
+}
+\makeatother
+\def\linesparpage#1{
+\baselineskip=\textheight
+\divide\baselineskip by #1
+}
+% 名前
+% もし4文字でなかったら、氏名の全角スペースを過剰分だけ消す
+\newcommand{\name}{○○ ○○}
+% 出席番号
+\newcommand{\num}{○}
+\begin{document}
+% 文字数
+\mojiparline{40}
+% 行数
+\linesparpage{40}
+% ページ番号を消す
+\pagestyle{empty}
+\begin{flushleft}
+\textsf{
+\underline{
+【課題番号】 ○-○　【クラス】 I　　【出席番号】 \num　　【氏名】 \name　　　　　　
+}
+}
+\end{flushleft}
+
+本文をここに書く。
+
+\end{document}
