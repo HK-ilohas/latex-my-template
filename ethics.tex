@@ -15,6 +15,8 @@
 \usepackage{newtxtext,newtxmath}
 % URL
 \usepackage{url}
+% SI単位
+\usepackage{siunitx}
 % 文字数、行数指定
 \makeatletter
 \def\mojiparline#1{
@@ -33,9 +35,9 @@
 \divide\baselineskip by #1
 }
 % 名前
-\newcommand{\name}{○○ ○○}
+\newcommand{\myname}{○○ ○○}
 % 出席番号
-\newcommand{\num}{○}
+\newcommand{\mynum}{○}
 \begin{document}
 % 文字数
 \mojiparline{40}
@@ -46,7 +48,7 @@
 \begin{flushleft}
 \textsf{
 \underline{
-【課題番号】 ○-○　【クラス】 I　　【出席番号】 \num　　【氏名】 \name\hspace{6.5em}
+【課題番号】 ○-○　【クラス】 I　　【出席番号】 \mynum　　【氏名】 \myname\hspace{6.5em}
 }
 }
 \end{flushleft}
