@@ -6,6 +6,7 @@
 \usepackage{otf}
 % 数式
 \usepackage{amsmath,amssymb}
+\usepackage{mathtools}
 \usepackage{empheq}
 \usepackage{amsthm}
 \newtheorem{dfn}{定義}
@@ -134,6 +135,21 @@
     citecolor=black,
     urlcolor=black
 }
+% タイトルのサイズ
+\usepackage{titlesec}
+% サブサブセクションをサブセクションと同じサイズにする
+\titleformat*{\subsubsection}{\large\sffamily}
+
+% 段組み
+\usepackage[]{multicol}
+% 段落の空白なし
+% \setlength\parindent{0pt}
+% ヘッダー
+\usepackage{fancyhdr}
+
+% SI単位
+\usepackage{siunitx}
+
 % マクロ
 % スペース関連
 \newcommand{\vsc}{\vspace{5pt}}
@@ -144,10 +160,10 @@
 \newcommand{\permutation}[2]{{}_{#1} \mathrm{P}_{#2}}
 % 重複組み合わせ
 \newcommand{\rcombination}[2]{{}_{#1} \mathrm{H}_{#2}}
-% ゴシック体のインデントなし
-\newcommand{\minisection}[1]{\noindent \textsf{#1}}
+% ゴシック体のインデント（\noindentは自分で付ける）
+\newcommand{\mysection}[1]{\textsf{#1}}
 % 箇条書きもどき
-\newcommand{\likeitem}[1]{
+\newcommand{\myitem}[1]{
     \noindent
     ○ \, {#1}
 }
@@ -231,6 +247,60 @@ TEST    START
         &=  1
 \end{align}
 
+式を大量並べたい場合も同様．
+\begin{align*}
+    A[0,0,0] &= S[0] &
+    A[0,0,1] &= S[1] &
+    A[1,0,0] &= S[2] &
+    A[1,0,1] &= S[3] &\\
+    A[2,0,0] &= S[4] &
+    A[2,0,1] &= S[5] &
+    A[3,0,0] &= S[6] &
+    A[3,0,1] &= S[7] &\\
+    A[4,0,0] &= S[8] &
+    A[4,0,1] &= S[9] &
+    A[0,1,0] &= S[10] &
+    A[0,1,1] &= S[11] &\\
+    A[1,1,0] &= S[12] &
+    A[1,1,1] &= S[13] &
+    A[2,1,0] &= S[14] &
+    A[2,1,1] &= S[15] &\\
+    A[3,1,0] &= S[16] &
+    A[3,1,1] &= S[17] &
+    A[4,1,0] &= S[18] &
+    A[4,1,1] &= S[19] &\\
+    A[0,2,0] &= S[20] &
+    A[0,2,1] &= S[21] &
+    A[1,2,0] &= S[22] &
+    A[1,2,1] &= S[23] &\\
+    A[2,2,0] &= S[24] &
+    A[2,2,1] &= S[25] &
+    A[3,2,0] &= S[26] &
+    A[3,2,1] &= S[27] &\\
+    A[4,2,0] &= S[28] &
+    A[4,2,1] &= S[29] &
+    A[0,3,0] &= S[30] &
+    A[0,3,1] &= S[31] &\\
+    A[1,3,0] &= S[32] &
+    A[1,3,1] &= S[33] &
+    A[2,3,0] &= S[34] &
+    A[2,3,1] &= S[35] &\\
+    A[3,3,0] &= S[36] &
+    A[3,3,1] &= S[37] &
+    A[4,3,0] &= S[38] &
+    A[4,3,1] &= S[39] &\\
+    A[0,4,0] &= S[40] &
+    A[0,4,1] &= S[41] &
+    A[1,4,0] &= S[42] &
+    A[1,4,1] &= S[43] &\\
+    A[2,4,0] &= S[44] &
+    A[2,4,1] &= S[45] &
+    A[3,4,0] &= S[46] &
+    A[3,4,1] &= S[47] &\\
+    A[4,4,0] &= S[48] &
+    A[4,4,1] &= S[49]
+\end{align*}
+
 連立方程式は\,\verb|empheq|\,を使う
 \footnote{\url{https://muscle-keisuke.hatenablog.com/entry/2015/11/23/122725}}．
 \begin{empheq}[left=\empheqlbrace]{align}
@@ -242,6 +312,13 @@ TEST    START
     x & \quad (x\geq0) \\
     -x & \quad (otherwise)
 \end{empheq}
+
+\verb|multline|を使うと，複数行の式をいい感じに配置してくれる．
+\begin{multline}
+(x+y+z)^3=x^3+xy^2+xz^2+2x^2y+2xyz+2zx^2\\
++yx^2+y^3+yz^2+2xy^2+2y^2z+2xyz\\
++x^2z+y^2z+z^3+2xyz+2yz^2+2z^2x
+\end{multline}
 
 \verb|\displaystyle|\,なし：
 $p_n(x) =\sum_{i=0}^n f[x_0,\cdots,x_i] \prod_{j=0}^{i-1}(x-x_j)$
@@ -314,32 +391,30 @@ $\displaystyle p_n(x) =\sum_{i=0}^n f[x_0,\cdots,x_i] \prod_{j=0}^{i-1}(x-x_j)$
 \end{ex}
 
 \subsection{マクロによる数式}
-\likeitem{順列}
+\myitem{順列}
 
 \begin{equation}
     \permutation{n}{r} = \frac{n!}{(n-r)!}
 \end{equation}
 
-\likeitem{組み合わせ}
+\myitem{組み合わせ}
 
 \begin{equation}
     \combination{n}{r} = \frac{n!}{r!(n-r)!}
 \end{equation}
 
-\likeitem{重複組み合わせ}
+\myitem{重複組み合わせ}
 
 \begin{equation}
     \rcombination{n}{r} = \frac{(n+r-1)!}{r!(n-1)!}
 \end{equation}
 
-
-\newpage
 \subsection{図}
 \begin{itemize}
     \item 画像の場合
     \begin{figure}[H]
         \centering
-        \includegraphics[scale=0.25]{./fig/install_terminal.png}
+        \includegraphics[width=0.5\textwidth]{./fig/install_terminal.png}
         \caption{Windows Terminalのインストール}
         \label{fig:install_terminal}
     \end{figure}
@@ -360,8 +435,45 @@ $\displaystyle p_n(x) =\sum_{i=0}^n f[x_0,\cdots,x_i] \prod_{j=0}^{i-1}(x-x_j)$
     \end{figure}
     
     \noindent
-    \textbf{タイトル}
+    \mysection{タイトル}
 
     これでノート形式の資料も作れる．
 \end{itemize}
+
+\section{段組み関連}
+
+\verb|multicols|で段組みが可能．
+
+\begin{multicols}{2}
+\subsection{テストA}
+ああああああああああああああああああああああああああああああああああああああああああああああああああ．
+\subsection{テストB}
+ああああああああああああああああああああああああああああああああああああああああああああああああああ．
+\end{multicols}
+
+\verb|minipage|でページ分割が可能．
+
+\begin{minipage}{0.6\textwidth}
+\begin{table}[H]
+  \caption{表の作成}
+  \label{table:text}
+  \centering
+  \begin{tabular}{l|crr}
+    \hline 
+    メニュー & サイズ & 値段 & カロリー \\ \hline 
+    牛丼 & 並盛 & 500円 & 600 kcal \\
+    牛丼 & 大盛 & 1,000円 & 800 kcal \\
+    牛丼 & 特盛 & 1,500円 & 1,000 kcal \\ \hline
+    牛皿 & 並盛 & 300円 & 250 kcal \\
+    牛皿 & 大盛 & 700円 & 300 kcal \\
+    牛皿 & 特盛 & 1,000円 & 350 kcal \\
+    \hline
+  \end{tabular}
+\end{table}
+\end{minipage}
+\hfill
+\begin{minipage}{0.35\textwidth}
+    ああああああああああああああああああああああああああああああああああああああああああああああああああ．
+\end{minipage}
+
 \end{document}
