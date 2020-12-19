@@ -8,7 +8,7 @@
 \usepackage{paralist}
 % マージンの設定
 \usepackage[left=30mm,right=30mm,top=35mm,bottom=30mm]{geometry}
-\renewcommand{\baselinestretch}{1.15}
+\renewcommand{\baselinestretch}{1.1}
 % 画像関連
 \usepackage[dvipdfmx]{graphicx}
 % フォント
@@ -33,7 +33,6 @@
 \divide\baselineskip by #1
 }
 % 名前
-% もし4文字でなかったら、氏名の全角スペースを過剰分だけ消す
 \newcommand{\name}{○○ ○○}
 % 出席番号
 \newcommand{\num}{○}
@@ -47,11 +46,23 @@
 \begin{flushleft}
 \textsf{
 \underline{
-【課題番号】 ○-○　【クラス】 I　　【出席番号】 \num　　【氏名】 \name　　　　　　
+【課題番号】 ○-○　【クラス】 I　　【出席番号】 \num　　【氏名】 \name\hspace{6.5em}
 }
 }
 \end{flushleft}
 
-本文をここに書く。
+\verb|\name|後の空白量は要調整．
+
+\noindent
+（イ）
+\hangindent=3zw
+\hspace{0zw}
+ああああああああああああああああああああああああああああああああああああああああああああああああああ
+
+\noindent
+（ロ）
+\hangindent=3zw
+\hspace{0zw}
+いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
 
 \end{document}
