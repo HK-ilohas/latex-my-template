@@ -21,14 +21,14 @@ for file in files:
         description = main_template_description
 
     with open(file) as f:
-        lines  = [s.strip() for s in f.readlines()]            
+        lines = [s.strip() for s in f.readlines()]
         incl = {
-            "prefix":f_name,
-            "body":lines,
-            "description":description
+            "prefix": f_name,
+            "body": lines,
+            "description": description
         }
         json_data[f_name] = incl
-    with open('latex.json','w') as j:
-        json.dump(json_data, j ,indent=4, ensure_ascii=False)
+    with open('latex.json', 'w') as j:
+        json.dump(json_data, j, indent=4, ensure_ascii=False)
 
 print("Created latex.json! \nCopy to your snippets/latex.json")
