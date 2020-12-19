@@ -1,0 +1,179 @@
+\documentclass[uplatex]{jsarticle}
+\usepackage[utf8]{inputenc}
+% 図を現在位置に挿入
+\usepackage{here}
+% 文字コード関連の設定
+\usepackage{otf}
+% 数式
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\usepackage{empheq}
+\usepackage{amsthm}
+\newtheorem{dfn}{定義}
+\newtheorem{thm}{定理}
+\newtheorem{prf}{証明}
+\newtheorem{law}{法則}
+\newtheorem{ex}{例}
+\newtheorem{lemm}{補題}
+% 斜体を解除
+\makeatletter
+\def\th@plain{\upshape}
+\makeatother
+% フォントエラーを無理やり消す
+\DeclareFontShape{JY2}{hmc}{m}{it}{<->ssub*hmc/m/n}{}
+\DeclareFontShape{JY2}{hmc}{m}{sl}{<->ssub*hmc/m/n}{}
+\DeclareFontShape{JY2}{hmc}{m}{sc}{<->ssub*hmc/m/n}{}
+\DeclareFontShape{JT2}{hmc}{m}{it}{<->ssub*hmc/m/n}{}
+\DeclareFontShape{JT2}{hmc}{m}{sl}{<->ssub*hmc/m/n}{}
+\DeclareFontShape{JT2}{hmc}{m}{sc}{<->ssub*hmc/m/n}{}
+\DeclareFontShape{JY2}{hmc}{b}{n}{<->ssub*hmc/bx/n}{}
+\DeclareFontShape{JT2}{hmc}{b}{n}{<->ssub*hmc/m/n}{}
+% 箇条書きのパラメータ関連の設定
+\usepackage{paralist}
+% ソースコード関連の設定
+\usepackage{listings,jlisting}
+% プログラムのソースコード
+\lstdefinestyle{program}{
+    basicstyle={\small\ttfamily},
+    breaklines=true,
+    columns=fixed,
+    basewidth=0.5em,
+    % スペースを可視化するかどうか
+    showstringspaces=false,
+    % 枠線 trbl（大文字で二重線）
+    frame={tb},
+    % フレームと本文の間のマージン
+    framesep=8pt,
+    % 行番号
+    numbers=left,
+    numbersep=2zw,
+    % フォントサイズ
+    numberstyle={\scriptsize},
+    % マージン
+    xrightmargin=0zw,
+    xleftmargin=3zw,
+    % 行間
+    lineskip=-0.2ex,
+    % タブ数
+    tabsize=4,
+    % キャプション名の場所
+    captionpos=t,
+}
+% プログラムの一部
+\lstdefinestyle{code}{
+    basicstyle={\small\ttfamily},
+    breaklines=true,
+    columns=fixed,
+    basewidth=0.5em,
+    % スペースを可視化するかどうか
+    showstringspaces=false,
+    % フレームと本文の間のマージン
+    framesep=8pt,
+    % マージン
+    xrightmargin=0zw,
+    xleftmargin=2.5zw,
+    % 行間
+    lineskip=-0.2ex,
+    % タブ数
+    tabsize=4,
+}
+% コマンド
+% 角が丸いフレーム付き（文字サイズsmall）
+\lstdefinestyle{command}{
+    basicstyle={\small\ttfamily},
+    breaklines=true,
+    columns=fixed,
+    basewidth=0.5em,
+    showstringspaces=false,
+    frame={trbl},
+    frameround={tttt},
+    framesep=8pt,
+    framerule=0pt,
+    xrightmargin=1zw,
+    xleftmargin=1zw,
+    lineskip=-0.2ex,
+    tabsize=4,
+}
+% 角が丸いフレーム付き
+\lstdefinestyle{withframe}{
+    basicstyle={\ttfamily},
+    breaklines=true,
+    columns=fixed,
+    basewidth=0.5em,
+    showstringspaces=false,
+    frame={trbl},
+    frameround={tttt},
+    framesep=8pt,
+    framerule=0pt,
+    xrightmargin=1zw,
+    xleftmargin=1zw,
+    lineskip=-0.5ex,
+    tabsize=4,
+}
+% キャプション名
+\renewcommand{\lstlistingname}{プログラム}
+% 囲い関連の設定
+\usepackage{ascmac}
+% マージンの設定
+\usepackage[left=30mm,right=30mm,top=30mm,bottom=30mm]{geometry}
+\renewcommand{\baselinestretch}{1.15}
+% 画像関連
+\usepackage[dvipdfmx]{graphicx}
+% フォント
+\usepackage{newtxtext,newtxmath}
+% URL
+\usepackage{url}
+% 目次
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{pxjahyper}
+\hypersetup{
+    setpagesize=false,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=black
+}
+% タイトルのサイズ
+\usepackage{titlesec}
+% サブサブセクションをサブセクションと同じサイズにする
+\titleformat*{\subsubsection}{\large\sffamily}
+
+% 段組み
+\usepackage[]{multicol}
+% 段落の空白なし
+% \setlength\parindent{0pt}
+% ヘッダー
+\usepackage{fancyhdr}
+
+% SI単位
+\usepackage{siunitx}
+
+% マクロ
+% スペース関連
+\newcommand{\vsc}{\vspace{5pt}}
+\newcommand{\vsp}{\vspace{10pt}}
+% コンビネーション
+\newcommand{\combination}[2]{{}_{#1} \mathrm{C}_{#2}}
+% 順列
+\newcommand{\permutation}[2]{{}_{#1} \mathrm{P}_{#2}}
+% 重複組み合わせ
+\newcommand{\rcombination}[2]{{}_{#1} \mathrm{H}_{#2}}
+% ゴシック体のインデント（\noindentは自分で付ける）
+\newcommand{\mysection}[1]{\textsf{#1}}
+% 箇条書きもどき
+\newcommand{\myitem}[1]{
+    \noindent
+    ○ \, {#1}
+}
+
+\begin{document}
+\title{タイトル}
+\author{名前}
+\date{\today}
+\maketitle
+% 目次生成
+\tableofcontents
+
+\end{document}
