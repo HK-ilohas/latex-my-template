@@ -6,6 +6,7 @@
 \usepackage{otf}
 % 箇条書きのパラメータ関連の設定
 \usepackage{paralist}
+\usepackage{enumitem}
 % マージンの設定
 \usepackage[left=30mm,right=30mm,top=35mm,bottom=30mm]{geometry}
 \renewcommand{\baselinestretch}{1.1}
@@ -47,24 +48,21 @@
 \pagestyle{empty}
 \begin{flushleft}
 \textsf{
-\underline{
-【課題番号】 ○-○　【クラス】 I　　【出席番号】 \mynum　　【氏名】 \myname\hspace{6.5em}
-}
+【課題番号】 ○-○　【クラス】 I　　【出席番号】 \mynum　　【氏名】 \myname
+\vspace{0.2em}
+\hrule width \textwidth height 0.5pt
+\vspace{0.5em}
 }
 \end{flushleft}
 
-\verb|\name|後の空白量は要調整．
+% 箇条書き
+\begin{description}[style=multiline,topsep=0em,font=\textmc]
+    \item[（イ）]
+    ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
 
-\noindent
-（イ）
-\hangindent=3zw
-\hspace{0zw}
-ああああああああああああああああああああああああああああああああああああああああああああああああああ
+    \item[（ロ）]  
+    ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ．
 
-\noindent
-（ロ）
-\hangindent=3zw
-\hspace{0zw}
-いいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいいい
+\end{description}
 
 \end{document}
