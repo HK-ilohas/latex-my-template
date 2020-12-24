@@ -1,0 +1,165 @@
+\documentclass[11pt]{ltjsarticle}
+% タイトルと名前
+\newcommand{\mytitle}{タイトル}
+\newcommand{\myname}{名前}
+% 数式
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\usepackage{empheq}
+\usepackage{amsthm}
+\newtheorem{definition}{定義}
+\newtheorem{theorem}{定理}
+\newtheorem{prf}{証明}
+\newtheorem{law}{法則}
+\newtheorem{example}{例}
+\newtheorem{lemma}{補題}
+% 数式フォント
+\usepackage{newtxmath}
+% フォントの設定
+\usepackage{luatexja-fontspec}
+\usepackage[haranoaji,no-math,deluxe]{luatexja-preset}
+\setmainfont{Times New Roman}
+\setsansfont{Source Sans Pro}[
+    FontFace = {l}{n}{SourceSansPro-Light}
+]
+\setmonofont{Source Code Pro}[Scale = 0.875]
+% マージンの設定
+\usepackage[left=20truemm,right=20truemm,top=25truemm,bottom=30truemm]{geometry}
+% 画像関連
+\usepackage{graphicx}
+% 図を現在位置に挿入
+\usepackage{here}
+% 目次
+\usepackage{hyperref}
+\hypersetup{
+    setpagesize=false,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=black,
+    pdftitle={\mytitle},
+    pdfauthor={\myname}
+}
+% タイトルのサイズ
+\usepackage{titlesec}
+% サブサブセクションをサブセクションと同じサイズにする
+\titleformat*{\subsubsection}{\large\sffamily}
+% SI単位
+\usepackage{siunitx}
+% ソースコード関連の設定
+\usepackage{listings}
+% プログラムのソースコード
+\lstdefinestyle{program}{
+    basicstyle={\small\ttfamily},
+    breaklines=true,
+    columns=fixed,
+    basewidth=0.5em,
+    % スペースを可視化するかどうか
+    showstringspaces=false,
+    % 枠線 trbl（大文字で二重線）
+    frame={tb},
+    % フレームと本文の間のマージン
+    framesep=8pt,
+    % 行番号
+    numbers=left,
+    numbersep=2\zw,
+    % フォントサイズ
+    numberstyle={\scriptsize},
+    % マージン
+    xrightmargin=0\zw,
+    xleftmargin=3\zw,
+    % 行間
+    lineskip=-0.2ex,
+    % タブ数
+    tabsize=4,
+    % キャプション名の場所
+    captionpos=t,
+}
+% プログラムの一部
+\lstdefinestyle{code}{
+    basicstyle={\small\ttfamily},
+    breaklines=true,
+    columns=fixed,
+    basewidth=0.5em,
+    % スペースを可視化するかどうか
+    showstringspaces=false,
+    % フレームと本文の間のマージン
+    framesep=8pt,
+    % マージン
+    xrightmargin=0\zw,
+    xleftmargin=2.5\zw,
+    % 行間
+    lineskip=-0.2ex,
+    % タブ数
+    tabsize=4,
+}
+% コマンド
+% 角が丸いフレーム付き（文字サイズsmall）
+\lstdefinestyle{command}{
+    basicstyle={\small\ttfamily},
+    breaklines=true,
+    columns=fixed,
+    basewidth=0.5em,
+    showstringspaces=false,
+    frame={trbl},
+    frameround={tttt},
+    framesep=8pt,
+    framerule=0pt,
+    xrightmargin=1\zw,
+    xleftmargin=1\zw,
+    lineskip=-0.2ex,
+    tabsize=4,
+}
+% 角が丸いフレーム付き
+\lstdefinestyle{withframe}{
+    basicstyle={\ttfamily},
+    breaklines=true,
+    columns=fixed,
+    basewidth=0.5em,
+    showstringspaces=false,
+    frame={trbl},
+    frameround={tttt},
+    framesep=8pt,
+    framerule=0pt,
+    xrightmargin=1\zw,
+    xleftmargin=1\zw,
+    lineskip=-0.5ex,
+    tabsize=4,
+}
+% キャプション名
+\renewcommand{\lstlistingname}{プログラム}
+% 囲い関連の設定
+\usepackage{ascmac}
+% 箇条書きのパラメータ関連の設定
+\usepackage{paralist}
+% URL
+\usepackage{url}
+% 段組み
+\usepackage[]{multicol}
+% 段落の空白なし
+% \setlength\parindent{0pt}
+% ヘッダー
+\usepackage{fancyhdr}
+% マクロ
+% スペース関連
+\newcommand{\vsc}{\vspace{5pt}}
+\newcommand{\vsp}{\vspace{10pt}}
+% コンビネーション
+\newcommand{\combination}[2]{{}_{#1} \mathrm{C}_{#2}}
+% 順列
+\newcommand{\permutation}[2]{{}_{#1} \mathrm{P}_{#2}}
+% 重複組み合わせ
+\newcommand{\rcombination}[2]{{}_{#1} \mathrm{H}_{#2}}
+% ゴシック体のインデント（\noindentは自分で付ける）
+\newcommand{\mysection}[1]{\textsf{#1}}
+% 箇条書きもどき
+\newcommand{\myitem}[1]{
+    \noindent
+    ○ \, {#1}
+}
+
+\begin{document}
+
+\end{document}
